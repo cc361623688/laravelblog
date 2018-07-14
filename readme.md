@@ -1,60 +1,124 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p align="center">
+<a href="http://laravel-admin.org/">
+<img src="http://laravel-admin.org/img/logo004.png" alt="laravel-admin">
+</a>
+
+<p align="center">⛵<code>laravel-admin</code> is administrative interface builder for laravel which can help you build CRUD backends just with few lines of code.</p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href="http://laravel-admin.org/docs">Documentation</a> | 
+<a href="http://laravel-admin.org/docs/#/zh/">中文文档</a> | 
+<a href="http://laravel-admin.org/demo">Demo</a> | 
+<a href="https://github.com/z-song/laravel-admin.org">Demo source code</a> | 
+<a href="https://github.com/laravel-admin-extensions">Extensions</a>
 </p>
 
-## About Laravel
+<p align="center">
+    <a href="https://travis-ci.org/z-song/laravel-admin">
+        <img src="https://travis-ci.org/z-song/laravel-admin.svg?branch=master" alt="Build Status">
+    </a>
+    <a href="https://styleci.io/repos/48796179">
+        <img src="https://styleci.io/repos/48796179/shield" alt="StyleCI">
+    </a>
+    <a href="https://scrutinizer-ci.com/g/z-song/laravel-admin/?branch=master">
+        <img src="https://scrutinizer-ci.com/g/z-song/laravel-admin/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality">
+    </a>
+    <a href="https://packagist.org/packages/encore/laravel-admin">
+        <img src="https://img.shields.io/packagist/l/encore/laravel-admin.svg?maxAge=2592000&&style=flat-square" alt="Packagist">
+    </a>
+    <a href="https://packagist.org/packages/encore/laravel-admin">
+        <img src="https://img.shields.io/packagist/dt/encore/laravel-admin.svg?style=flat-square" alt="Total Downloads">
+    </a>
+    <a href="https://github.com/z-song/laravel-admin">
+        <img src="https://img.shields.io/badge/Awesome-Laravel-brightgreen.svg?style=flat-square" alt="Awesome Laravel">
+    </a>
+</div>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+<p align="center">
+    Inspired by <a href="https://github.com/sleeping-owl/admin" target="_blank">SleepingOwlAdmin</a> and <a href="https://github.com/zofe/rapyd-laravel" target="_blank">rapyd-laravel</a>.
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Screenshots
+------------
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+![laravel-admin](https://cloud.githubusercontent.com/assets/1479100/19625297/3b3deb64-9947-11e6-807c-cffa999004be.jpg)
 
-## Learning Laravel
+Requirements
+------------
+ - PHP >= 7.0.0
+ - Laravel >= 5.5.0
+ - Fileinfo PHP Extension
+ 
+Installation
+------------
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+> This package requires PHP 7+ and Laravel 5.5, for old versions please refer to [1.4](http://laravel-admin.org/docs/v1.4/#/) 
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+First, install laravel 5.5, and make sure that the database connection settings are correct.
 
-## Laravel Sponsors
+```
+composer require encore/laravel-admin
+```
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+Then run these commands to publish assets and config：
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
+```
+php artisan vendor:publish --provider="Encore\Admin\AdminServiceProvider"
+```
+After run command you can find config file in `config/admin.php`, in this file you can change the install directory,db connection or table names.
 
-## Contributing
+At last run following command to finish install. 
+```
+php artisan admin:install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Open `http://localhost/admin/` in browser,use username `admin` and password `admin` to login.
 
-## Security Vulnerabilities
+Configurations
+------------
+The file `config/admin.php` contains an array of configurations, you can find the default configurations in there.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Backers
+------------
 
-## License
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/laravel-admin#backer)]
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<a href="https://opencollective.com/laravel-admin#backers" target="_blank"><img src="https://opencollective.com/laravel-admin/backers.svg?width=890"></a>
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/laravel-admin#sponsor)]
+
+<a href="https://opencollective.com/laravel-admin/sponsor/0/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/1/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/2/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/3/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/4/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/5/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/6/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/7/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/8/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/laravel-admin/sponsor/9/website" target="_blank"><img src="https://opencollective.com/laravel-admin/sponsor/9/avatar.svg"></a>
+
+Other
+------------
+`laravel-admin` based on following plugins or services:
+
++ [Laravel](https://laravel.com/)
++ [AdminLTE](https://almsaeedstudio.com/)
++ [Datetimepicker](http://eonasdan.github.io/bootstrap-datetimepicker/)
++ [font-awesome](http://fontawesome.io)
++ [moment](http://momentjs.com/)
++ [Google map](https://www.google.com/maps)
++ [Tencent map](http://lbs.qq.com/)
++ [bootstrap-fileinput](https://github.com/kartik-v/bootstrap-fileinput)
++ [jquery-pjax](https://github.com/defunkt/jquery-pjax)
++ [Nestable](http://dbushell.github.io/Nestable/)
++ [toastr](http://codeseven.github.io/toastr/)
++ [X-editable](http://github.com/vitalets/x-editable)
++ [bootstrap-number-input](https://github.com/wpic/bootstrap-number-input)
++ [fontawesome-iconpicker](https://github.com/itsjavi/fontawesome-iconpicker)
+
+License
+------------
+`laravel-admin` is licensed under [The MIT License (MIT)](LICENSE).
